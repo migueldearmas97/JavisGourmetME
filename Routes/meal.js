@@ -10,13 +10,14 @@ router.get('/', getMeals);
 
 router.get('/:id', getMealById);
 
+
 router.get('/filter/:name', getMealByName);
 
 //El segundo parametro es la lista de middleware
 router.post('/', [
     validarJWT,
 
-    check('name', 'The name is required').not().isEmpty(),
+    check('name', 'The name is required.').not().isEmpty(),
     // check('img', 'The img is required').not().isEmpty(),
     check('dayOfWeek', 'The dayOfWeek is required').not().isEmpty(),
     check('ingredients', 'The ingredients is required').not().isEmpty(),
